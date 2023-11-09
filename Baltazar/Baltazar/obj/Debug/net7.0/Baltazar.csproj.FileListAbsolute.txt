@@ -1,0 +1,14 @@
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\bin\Debug\net7.0\Baltazar.exe
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\bin\Debug\net7.0\Baltazar.deps.json
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\bin\Debug\net7.0\Baltazar.runtimeconfig.json
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\bin\Debug\net7.0\Baltazar.dll
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\bin\Debug\net7.0\Baltazar.pdb
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.AssemblyInfoInputs.cache
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.AssemblyInfo.cs
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.csproj.CoreCompileInputs.cache
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.dll
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\refint\Baltazar.dll
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.pdb
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\Baltazar.genruntimeconfig.cache
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Baltazar\Baltazar\obj\Debug\net7.0\ref\Baltazar.dll
