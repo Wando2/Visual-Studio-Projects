@@ -17,12 +17,14 @@ class Program
             //updateCategory(connection);
             // storedProcedure(connection);
             //insertManyCategory(connection);
-            // selectCategory(connection);
+            // 
             //executeScalar(connection);
             //selectView(connection);
             //OneToOne(connection);
             //OneToMany(connection);
-            selectIn(connection);
+            //selectIn(connection);
+            transaction(connection);
+       
         }
 
 
@@ -85,7 +87,7 @@ class Program
         var affectedRows = connection.Execute(insert, new
         {
             Id = Guid.NewGuid(),
-            Title = "Fluttler",
+            Title = "Swift",
             Url = "Flutter",
             Summary = "Desenvolva aplicativos mobile",
             Order = 5,
@@ -212,6 +214,60 @@ class Program
         }
     }
 
+
+    static void like(SqlConnection connection, string text)
+    {
+        var sql = @"SELECT * FROM [Course] WHERE [Title] LIKE @text";
+
+        var categories = connection.Query<course>(sql, new
+        {
+            text = $"%{text}%"
+        });
+
+        foreach (var item in categories)
+        {
+            System.Console.WriteLine($"{item.Id} - {item.Title}");
+        }
+    }
+
+
+    
+    static void transaction(SqlConnection connection)
+    {
+        connection.Open();
+        using (var transaction = connection.BeginTransaction())
+        {
+            try
+            {
+                var insert = @"INSERT INTO [Category] 
+                        VALUES (@Id, @Title, @Url, @Summary, @Order, @Description, @Featured)";
+
+                var affectedRows = connection.Execute(insert, new
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Swift",
+                    Url = "Flutter",
+                    Summary = "Desenvolva aplicativos mobile",
+                    Order = 5,
+                    Description = "Flutter é um SDK de código aberto criado pelo Google para desenvolvimento de aplicativos para Android e iOS com uma única base de código.",
+                    Featured = false
+                }, transaction);
+
+                transaction.Commit();
+            }
+            catch (System.Exception)
+            {
+                transaction.Rollback();
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
+
+    }                   
 }
 
 

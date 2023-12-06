@@ -6,8 +6,9 @@ CREATE OR ALTER PROCEDURE deleteStudent(
 
  BEGIN TRANSACTION
  
-    DELETE FROM StudentCourse WHERE StudentId = @StudentId
+    DELETE FROM [StudentCourse] WHERE StudentId = @StudentId
 
     DELETE FROM Student WHERE Id = @StudentId
 
 COMMIT TRANSACTION    
+
