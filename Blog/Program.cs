@@ -12,53 +12,37 @@ class Program
         var connection = new SqlConnection(connectionString);
 
 
-      
+
     }
 
 
-    public void  GetUser(int id, SqlConnection connection)
+    public void GetUser(int id, SqlConnection connection)
     {
-       var UserRepository = new UserRepository(connection);
-         var user = UserRepository.Get(id);
-         Console.WriteLine(user.Name);
+        var UserRepository = new UserRepository(connection);
+        var user = UserRepository.Get(id);
+        Console.WriteLine(user.Name);
     }
-   
-   
 
-    public static void createUser()
+    public void GetUsers(SqlConnection connection)
     {
-        using (var connection = new SqlConnection(connectionString))
+        var UserRepository = new UserRepository(connection);
+        var users = UserRepository.readUsers();
+        foreach (var user in users)
         {
-            var user = new User
-            {
-                Name = "Paulin",
-                Email = "paulin@gmail.com",
-                PasswordHash = "123456",
-                Bio = "I am a developer",
-                Image = "https://static.productionready.io/images/smiley-cyrus.jpg",
-                Slug = "paulin"
-            };
-
-            connection.Insert(user);
+            Console.WriteLine(user.Name);
         }
     }
 
-    public static void updateUser()
+
+    public void getUsers2(SqlConnection connection)
     {
-        using (var connection = new SqlConnection(connectionString))
+        var userRepository = new Repository<User>(connection);
+        var users = userRepository.read();
+
+        foreach (var user in users)
         {
-            var user = connection.Get<User>(1);
-            user.Name = "Joaozim";
-            connection.Update(user);
-        }    
+            Console.WriteLine(user.Name);
+        }
     }
 
-    public static void deleteUser()
-    {
-        using (var connection = new SqlConnection(connectionString))
-        {
-            var user = connection.Get<User>(1);
-            connection.Delete(user);
-        }    
-    }
 }

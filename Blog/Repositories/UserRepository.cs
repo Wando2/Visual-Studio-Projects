@@ -20,6 +20,14 @@ namespace blog.Repository
         public IEnumerable<User> readUsers()
         => _connection.GetAll<User>();
 
+        public void Create(User user)
+        => _connection.Insert(user);
+
+        public void Update(User user)
+        => _connection.Update(user);
+
+        public void Delete(User user)
+        => _connection.Delete(user);
     }
 
 }
