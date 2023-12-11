@@ -1,33 +1,52 @@
 using System.Data.SqlClient;
 using blog.Models;
-using Dapper.Contrib.Extensions;
+using Dapper;
 
-namespace blog.Repository
-{
-
-    public class UserRepository
+namespace blog.Repositories
+{ 
+    public class UserRepository : Repository<User>
     {
-     private readonly SqlConnection _connection;
+        private readonly SqlConnection _connection;
 
-        public UserRepository(SqlConnection connection)
+        public UserRepository(SqlConnection connection) : base(connection)
         => _connection = connection;
 
+        public List<User> GetUsersWithRole()
+        {
+            var sql = @"
+                SELECT
+                    [User].*,
+                    [Role].*
+                FROM
+                    [User]
+                LEFT JOIN [UserRole] ON [UserRole].[UserId] = [User].[Id]
+                LEFT JOIN [Role] ON [Role].[Id] = [UserRole].[RoleId]
+            ";
 
-        public User Get(int id)
-        => _connection.Get<User>(id);
-       
+            var users = new List<User>();
 
-        public IEnumerable<User> readUsers()
-        => _connection.GetAll<User>();
+            var items = _connection.Query<User, Role, User>(
+                sql,
+                (user, role) =>
+                {
+                    var usr = users.FirstOrDefault(u => u.Id == user.Id);
 
-        public void Create(User user)
-        => _connection.Insert(user);
+                    if (usr == null)
+                    {
+                        users.Add(user);
+                        usr = user;
+                    }
+                    else 
+                      usr.Roles.Add(role);
 
-        public void Update(User user)
-        => _connection.Update(user);
+                    return usr;  
+                },
 
-        public void Delete(User user)
-        => _connection.Delete(user);
+            return users;
+
+        }
+        
     }
+
 
 }

@@ -1,8 +1,6 @@
 ﻿
 using System.Data.SqlClient;
 using blog.Models;
-using blog.Repository;
-using Dapper.Contrib.Extensions;
 
 class Program
 {
@@ -16,23 +14,8 @@ class Program
     }
 
 
-    public void GetUser(int id, SqlConnection connection)
-    {
-        var UserRepository = new UserRepository(connection);
-        var user = UserRepository.Get(id);
-        Console.WriteLine(user.Name);
-    }
-
-    public void GetUsers(SqlConnection connection)
-    {
-        var UserRepository = new UserRepository(connection);
-        var users = UserRepository.readUsers();
-        foreach (var user in users)
-        {
-            Console.WriteLine(user.Name);
-        }
-    }
-
+   
+   
 
     public void getUsers2(SqlConnection connection)
     {

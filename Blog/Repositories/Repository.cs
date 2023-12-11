@@ -23,4 +23,6 @@ public class Repository <T> where T : class
 
     public void Delete(T entity)
     => _connection.Delete(entity);
+
+    
 }
