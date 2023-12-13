@@ -1,23 +1,17 @@
 ﻿
 using System.Data.SqlClient;
 using blog.Models;
+using blog.Repositories;
 
 class Program
 {
     private const string connectionString = "Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
-    static void Main(string[] args)
-    {
-        var connection = new SqlConnection(connectionString);
 
 
 
-    }
 
 
-   
-   
-
-    public void getUsers2(SqlConnection connection)
+    public static void getUsers2(SqlConnection connection)
     {
         var userRepository = new Repository<User>(connection);
         var users = userRepository.read();
@@ -27,5 +21,22 @@ class Program
             Console.WriteLine(user.Name);
         }
     }
+
+    public static void getUsersWithRole(SqlConnection connection)
+    {
+        var userRepository = new UserRepository(connection);
+        var users = userRepository.GetUsersWithRole();
+
+        foreach (var user in users)
+        {
+            Console.WriteLine(user.Name);
+            
+            foreach (var role in user.Roles)
+            {
+                Console.WriteLine(role.Name);
+            }
+        }
+    }
+
 
 }

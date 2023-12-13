@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using blog.Models;
 using Dapper;
 
@@ -29,18 +30,23 @@ namespace blog.Repositories
                 sql,
                 (user, role) =>
                 {
-                    var usr = users.FirstOrDefault(u => u.Id == user.Id);
+                    var existingUser = users.FirstOrDefault(u => u.Id == user.Id);
 
-                    if (usr == null)
-                    {
+                    if (existingUser == null)
+                    {   
+                        user.Roles = new List<Role>();
                         users.Add(user);
-                        usr = user;
+                        existingUser = user;
                     }
-                    else 
-                      usr.Roles.Add(role);
 
-                    return usr;  
-                },
+                    if (role != null)
+                    {
+                        existingUser.Roles.Add(role);
+                    }
+
+                    return existingUser;
+                }); 
+                
 
             return users;
 

@@ -4,6 +4,10 @@ namespace blog.Models{
     [Table("[User]")]
 
     public class User{
+
+        public User()
+            => new List<Role>();
+            
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
