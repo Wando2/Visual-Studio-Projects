@@ -52,6 +52,15 @@ namespace blog.Repositories
 
         }
         
+        public void linkRole(User user, Role role)
+        {
+            var sql = @"
+                INSERT INTO [UserRole] ([UserId], [RoleId])
+                VALUES (@UserId, @RoleId)
+            ";
+
+            _connection.Execute(sql, new { UserId = user.Id, RoleId = role.Id });
+        }
     }
 
 
