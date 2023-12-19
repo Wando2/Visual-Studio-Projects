@@ -26,7 +26,7 @@ namespace blogEntity.Models{
 
         [Required]
         [MaxLength(2000)]
-        [Column("Image", TypeName = "text")]
+        [Column("Body", TypeName = "text")]
         public string? Body { get; set; }
 
         
@@ -35,17 +35,14 @@ namespace blogEntity.Models{
         public DateTime? LastUpdateDate { get; set; }
 
 
-        [Required]
+        
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
-
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
         
-        [Required]
         [ForeignKey("AuthorId")]
         public int AuthorId { get; set; }
-
-        public User? Author { get; set; }
+        public User Author { get; set; }
 
         [Required]
         [MaxLength(100)]

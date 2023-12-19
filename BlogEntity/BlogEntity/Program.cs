@@ -2,20 +2,29 @@
 using blogEntity.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace blogEntity{
+namespace blogEntity
+{
 
-    public class Program{
-        public static void Main(string[] args){
-            using (var db = new BlogDataContext())
-            {
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            using var db = new BlogDataContext();
 
-                var tag = db.Tags.
-                AsNoTracking().
-                FirstOrDefault(x => x.Id == 1);
+         
+            var posts = db.Posts.
+            AsNoTracking().
+            Include(x => x.Author).
+            OrderByDescending(x => x.CreateDate).
+            ToList();
 
-                System.Console.WriteLine(tag?.Name);
-            }
-              
+            foreach (var post in posts)
+              Console.WriteLine($"{post.Title} - feito por {post.Author.Name} - {post.CreateDate}");
+
+
+
+
+
         }
     }
 
