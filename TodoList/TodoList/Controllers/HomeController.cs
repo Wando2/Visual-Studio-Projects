@@ -8,49 +8,63 @@ namespace TodoList.Controllers
     public class HomeController : ControllerBase 
     { 
         [HttpGet("/")] 
-        public List<Todo> Get(
+        public IActionResult Get(
             [FromServices] AppDbContext dbContext
         ) 
-        { 
-            return dbContext.Todos.ToList();
-        } 
+        => Ok(dbContext.Todos.ToList());
+         
 
         [HttpGet("/{id}")]
-        public Todo Get(
+        public IActionResult Get(
             [FromServices] AppDbContext dbContext,
             int id
         ) 
         { 
-            return dbContext.Todos.Find(id);
+            return Ok(dbContext.Todos.Find(id));
 
         }
+        
+        [HttpDelete("/{id}")]
+        
+        public IActionResult Delete(
+            [FromServices] AppDbContext dbContext,
+            int id
+        ) 
+        { 
+            var todo = dbContext.Todos.Find(id);
+            if (todo == null) return NotFound();
+            dbContext.Todos.Remove(todo);
+            dbContext.SaveChanges();
+            return Ok();
+        }
+        
 
         [HttpPost("/")]
         
-        public Todo Post(
+        public IActionResult Post(
             [FromServices] AppDbContext dbContext,
             [FromBody] Todo todo
         ) 
         { 
             dbContext.Todos.Add(todo);
             dbContext.SaveChanges();
-            return todo;
+            return Created($"{todo.Id}", todo);
         }
 
         [HttpPut("/{id}")]
 
-        public Todo Put(
+        public IActionResult Put(
             [FromServices] AppDbContext dbContext,
             [FromBody] Todo todo,
             int id
         ) 
         { 
             var todoToUpdate = dbContext.Todos.Find(id);
-            if (todoToUpdate == null) return null;
+            if (todoToUpdate == null) return NotFound();
             todoToUpdate.Title = todo.Title;
             todoToUpdate.IsCompleted = todo.IsCompleted;
             dbContext.SaveChanges();
-            return todoToUpdate;
+            return Ok(todoToUpdate);
         }
     }
 }
