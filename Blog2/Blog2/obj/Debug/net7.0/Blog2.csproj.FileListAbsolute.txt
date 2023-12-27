@@ -1,7 +1,0 @@
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.csproj.AssemblyReference.cache
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.AssemblyInfoInputs.cache
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.AssemblyInfo.cs
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.csproj.CoreCompileInputs.cache
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\Blog2\Blog2\obj\Debug\net7.0\Blog2.MvcApplicationPartsAssemblyInfo.cache
