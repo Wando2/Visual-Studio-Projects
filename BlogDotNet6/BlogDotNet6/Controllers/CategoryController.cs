@@ -1,4 +1,5 @@
 using BlogDotNet6.Data;
+using BlogDotNet6.Extensions;
 using BlogDotNet6.Models;
 using BlogDotNet6.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,8 @@ namespace BlogDotNet6.Controllers
             [FromBody] EditorCategoryViewModel model
             )
         {
+            if (!ModelState.IsValid)
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
             try
             {
                 var category = new Category
@@ -72,17 +75,30 @@ namespace BlogDotNet6.Controllers
             [FromRoute]int id
             )
         {
-            var category = await context.Categories.FindAsync(id);
-            if(category == null)
-                return NotFound();
+            if (!ModelState.IsValid)
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
+
+            try
+            {
+                var category = await context.Categories.FindAsync(id);
+                if(category == null)
+                    return NotFound();
             
-            category.Name = model.Name;
-            category.Slug = model.Slug;
-            context.Categories.Update(category);
+                category.Name = model.Name;
+                category.Slug = model.Slug;
+                context.Categories.Update(category);
             
-            await context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             
-            return Ok( new ResultViewModel<Category>(category));
+                return Ok( new ResultViewModel<Category>(category));
+            }
+            
+            catch (DbUpdateException)
+            {
+                return BadRequest(new ResultViewModel<Category>("01 - The category couldn't be saved"));
+            }
+            
+            
             
         }
         
