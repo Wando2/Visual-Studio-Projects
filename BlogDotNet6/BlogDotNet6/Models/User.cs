@@ -19,7 +19,11 @@ namespace BlogDotNet6.Models{
         [Column("Image", TypeName = "varchar(2000)")]
         public string Image { get; set; }
         public string? Slug { get; set; }
-
+        
+        [ForeignKey("RoleId")]
+        public int RoleId { get; set; }
+        public Role Role { get; set; }
+        
         
     }
 }
