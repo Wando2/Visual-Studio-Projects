@@ -1,0 +1,16 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlogDotNet6.ViewModels;
+
+public class RegisterUserViewModel
+{   
+    [Required(ErrorMessage = "O campo  é obrigatorio")]
+    public string Name { get; set; } = string.Empty;
+    
+    [Required(ErrorMessage = "O campo  é obrigatorio")]
+    [EmailAddress(ErrorMessage = "o email é invalido")]
+    public string Email { get; set; } = string.Empty;
+    
+    
+    
+}
