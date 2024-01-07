@@ -23,7 +23,9 @@ namespace BlogDotNet6.Data{
             modelBuilder.Entity<Post>().ToTable("Post");
             modelBuilder.Entity<Category>().ToTable("Category");
             modelBuilder.Entity<Role>().ToTable("Role");
-            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<User>().ToTable("User")
+            .HasIndex(u => u.Email)
+            .IsUnique(); 
 
         }
 

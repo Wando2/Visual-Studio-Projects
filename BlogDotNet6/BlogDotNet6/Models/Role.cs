@@ -20,6 +20,9 @@ namespace BlogDotNet6.Models
         [MaxLength(50)]
         [Column("Slug", TypeName = "varchar(50)")]
         public string? Slug { get; set; }
+
+        public ICollection<User> Users { get; set; } = new List<User>();
+
     }
 
 }
