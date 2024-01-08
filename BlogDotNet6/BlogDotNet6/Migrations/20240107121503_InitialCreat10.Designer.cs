@@ -4,6 +4,7 @@ using BlogDotNet6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogDotNet6.Migrations
 {
     [DbContext(typeof(BlogDataContext))]
-    partial class BlogDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240107121503_InitialCreat10")]
+    partial class InitialCreat10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,13 +76,13 @@ namespace BlogDotNet6.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 55, 35, 224, DateTimeKind.Utc).AddTicks(1246))
+                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 15, 3, 600, DateTimeKind.Utc).AddTicks(8276))
                         .HasColumnName("CreateDate");
 
                     b.Property<DateTime>("LastUpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 55, 35, 224, DateTimeKind.Utc).AddTicks(1843))
+                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 15, 3, 600, DateTimeKind.Utc).AddTicks(9380))
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<string>("Slug")

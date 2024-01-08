@@ -1,16 +1,23 @@
+using BlogDotNet6.Data.Mappings;
+using BlogDotNet6.Models;
 
-namespace BlogDotNet6.Data{
+namespace BlogDotNet6.Data
+{
     using Microsoft.EntityFrameworkCore;
     using BlogDotNet6.Models;
+    using BlogDotNet6.Data.Mappings;
     public class BlogDataContext : DbContext
     {
-       
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Tag> Tags { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -19,15 +26,14 @@ namespace BlogDotNet6.Data{
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Tag>().ToTable("Tag");
-            modelBuilder.Entity<Post>().ToTable("Post");
-            modelBuilder.Entity<Category>().ToTable("Category");
-            modelBuilder.Entity<Role>().ToTable("Role");
-            modelBuilder.Entity<User>().ToTable("User")
-            .HasIndex(u => u.Email)
-            .IsUnique(); 
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new PostMap());
+            modelBuilder.ApplyConfiguration(new TagMap());
+            modelBuilder.ApplyConfiguration(new RoleMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
 
         }
+       
 
 
     }

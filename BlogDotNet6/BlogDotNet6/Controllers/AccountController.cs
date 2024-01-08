@@ -1,8 +1,11 @@
-﻿using BlogDotNet6.Data;
+﻿using System.Text.RegularExpressions;
+using BlogDotNet6.Data;
 using BlogDotNet6.Extensions;
 using BlogDotNet6.Models;
 using BlogDotNet6.Services;
 using BlogDotNet6.ViewModels;
+using BlogDotNet6.ViewModels.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -58,8 +61,8 @@ public class AccountController : ControllerBase
                return StatusCode(500, new ResultViewModel<User>(e.Message));
 
             }
-           
-        
+
+       
        
     }
     
@@ -98,6 +101,30 @@ public class AccountController : ControllerBase
         }
     }
 
+    
+    [Authorize]
+    [HttpPost("v1/accounts/upload-image")]
+    public async Task<IActionResult> UploadImage(
+        [FromBody] UploadImageViewModel model,
+        [FromServices] BlogDataContext context 
+    )
+    {
+        var fileName = $"{Guid.NewGuid()}.jpg";
+        var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(model.ImageBase64, string.Empty);
+            
+        var bytes = Convert.FromBase64String(data);
 
+        try
+        {
+            await System.IO.File.WriteAllBytesAsync($"./wwwroot/{fileName}", bytes);
+        } catch (Exception e)
+        {
+            return StatusCode(500, new ResultViewModel<User>(e.Message));
+        }
+        
+        var user = await context.Users.FirstOrDefaultAsync(u => u.Email == User.Identity.name);
+        
+
+    }
     
 }

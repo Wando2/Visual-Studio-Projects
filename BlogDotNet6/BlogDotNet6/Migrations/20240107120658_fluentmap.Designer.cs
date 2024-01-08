@@ -4,6 +4,7 @@ using BlogDotNet6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogDotNet6.Migrations
 {
     [DbContext(typeof(BlogDataContext))]
-    partial class BlogDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240107120658_fluentmap")]
+    partial class fluentmap
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,22 +35,15 @@ namespace BlogDotNet6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar")
-                        .HasColumnName("Name");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar")
-                        .HasColumnName("Slug");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "Slug" }, "IX_Category_Slug")
-                        .IsUnique();
-
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("BlogDotNet6.Models.Post", b =>
@@ -73,13 +69,13 @@ namespace BlogDotNet6.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 55, 35, 224, DateTimeKind.Utc).AddTicks(1246))
+                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 6, 58, 230, DateTimeKind.Utc).AddTicks(6635))
                         .HasColumnName("CreateDate");
 
                     b.Property<DateTime>("LastUpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 55, 35, 224, DateTimeKind.Utc).AddTicks(1843))
+                        .HasDefaultValue(new DateTime(2024, 1, 7, 12, 6, 58, 230, DateTimeKind.Utc).AddTicks(7922))
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<string>("Slug")
@@ -122,22 +118,15 @@ namespace BlogDotNet6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar")
-                        .HasColumnName("Name");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar")
-                        .HasColumnName("Slug");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex(new[] { "Slug" }, "IX_Role_Slug")
-                        .IsUnique();
-
-                    b.ToTable("Role", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("BlogDotNet6.Models.Tag", b =>

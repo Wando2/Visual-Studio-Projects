@@ -2,6 +2,7 @@ using BlogDotNet6.Data;
 using BlogDotNet6.Extensions;
 using BlogDotNet6.Models;
 using BlogDotNet6.ViewModels;
+using BlogDotNet6.ViewModels.Categories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

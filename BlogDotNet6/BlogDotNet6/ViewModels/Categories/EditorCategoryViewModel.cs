@@ -1,4 +1,4 @@
-﻿namespace BlogDotNet6.ViewModels;
+﻿namespace BlogDotNet6.ViewModels.Categories;
 
 public class EditorCategoryViewModel
 {
