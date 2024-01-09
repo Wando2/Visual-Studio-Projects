@@ -122,9 +122,23 @@ public class AccountController : ControllerBase
             return StatusCode(500, new ResultViewModel<User>(e.Message));
         }
         
-        var user = await context.Users.FirstOrDefaultAsync(u => u.Email == User.Identity.name);
+        var user = await context.Users.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
         
-
+        if (user == null)
+            return NotFound(new ResultViewModel<User>("01 - The user couldn't be found"));
+        
+        
+        user.Image = $"https://localhost:5001/{fileName}";
+        
+        try
+        {
+            await context.SaveChangesAsync();
+            return Ok(new ResultViewModel<string>(user.Image, null));
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, new ResultViewModel<User>(e.Message));
     }
     
+    }
 }

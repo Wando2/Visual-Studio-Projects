@@ -12,7 +12,7 @@ public static class RoleClaimsExtension
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.Email),
-            new Claim(ClaimTypes.Email, user.name),
+            new Claim(ClaimTypes.Email, user.Name),
             new Claim("Bio", user.Bio),
             new Claim("Image", user.Image),
            

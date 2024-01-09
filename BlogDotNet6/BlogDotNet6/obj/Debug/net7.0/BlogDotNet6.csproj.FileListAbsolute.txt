@@ -85,3 +85,4 @@ C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\BlogDotNet6\BlogDotNet
 C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\BlogDotNet6\BlogDotNet6\obj\Debug\net7.0\BlogDotNet6.pdb
 C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\BlogDotNet6\BlogDotNet6\obj\Debug\net7.0\BlogDotNet6.genruntimeconfig.cache
 C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\BlogDotNet6\BlogDotNet6\obj\Debug\net7.0\ref\BlogDotNet6.dll
+C:\Users\MegaJ\OneDrive\Documentos\Visual Studio Projects\BlogDotNet6\BlogDotNet6\bin\Debug\net7.0\BlogDotNet6.staticwebassets.runtime.json
