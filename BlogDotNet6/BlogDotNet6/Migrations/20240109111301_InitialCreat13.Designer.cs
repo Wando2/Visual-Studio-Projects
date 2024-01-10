@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogDotNet6.Migrations
 {
     [DbContext(typeof(BlogDataContext))]
-    [Migration("20240106162809_InitialCreat6")]
-    partial class InitialCreat6
+    [Migration("20240109111301_InitialCreat13")]
+    partial class InitialCreat13
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,16 +35,20 @@ namespace BlogDotNet6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar")
                         .HasColumnName("Name");
 
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(80)")
+                        .HasColumnType("varchar")
                         .HasColumnName("Slug");
 
                     b.HasKey("Id");
+
+                    b.HasIndex(new[] { "Slug" }, "IX_Category_Slug")
+                        .IsUnique();
 
                     b.ToTable("Category", (string)null);
                 });
@@ -69,28 +73,34 @@ namespace BlogDotNet6.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CreateDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValue(new DateTime(2024, 1, 9, 11, 13, 1, 454, DateTimeKind.Utc).AddTicks(4508))
+                        .HasColumnName("CreateDate");
 
-                    b.Property<DateTime?>("LastUpdateDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("LastUpdateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValue(new DateTime(2024, 1, 9, 11, 13, 1, 454, DateTimeKind.Utc).AddTicks(4951))
+                        .HasColumnName("LastUpdateDate");
 
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar")
                         .HasColumnName("Slug");
 
                     b.Property<string>("Summary")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(2000)
+                        .HasColumnType("text")
                         .HasColumnName("Summary");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("varchar")
                         .HasColumnName("Title");
 
                     b.HasKey("Id");
@@ -98,6 +108,9 @@ namespace BlogDotNet6.Migrations
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex(new[] { "Slug" }, "IX_Post_Slug")
+                        .IsUnique();
 
                     b.ToTable("Post", (string)null);
                 });
@@ -112,17 +125,20 @@ namespace BlogDotNet6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar")
                         .HasColumnName("Name");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar")
                         .HasColumnName("Slug");
 
                     b.HasKey("Id");
+
+                    b.HasIndex(new[] { "Slug" }, "IX_Role_Slug")
+                        .IsUnique();
 
                     b.ToTable("Role", (string)null);
                 });
@@ -138,16 +154,19 @@ namespace BlogDotNet6.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("varchar")
                         .HasColumnName("Name");
 
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("varchar")
                         .HasColumnName("Slug");
 
                     b.HasKey("Id");
+
+                    b.HasIndex(new[] { "Slug" }, "IX_Tag_Slug")
+                        .IsUnique();
 
                     b.ToTable("Tag", (string)null);
                 });
@@ -162,94 +181,136 @@ namespace BlogDotNet6.Migrations
 
                     b.Property<string>("Bio")
                         .IsRequired()
-                        .HasMaxLength(200)
+                        .HasMaxLength(2000)
                         .HasColumnType("text")
                         .HasColumnName("Bio");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("Email");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(2000)")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar")
                         .HasColumnName("Image");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("Name");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar")
                         .HasColumnName("PasswordHash");
 
                     b.Property<string>("Slug")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("nvarchar")
                         .HasColumnName("Slug");
 
                     b.HasKey("Id");
 
+                    b.HasIndex(new[] { "Slug" }, "IX_User_Slug")
+                        .IsUnique();
+
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("RoleUser", b =>
+            modelBuilder.Entity("PostTag", b =>
                 {
-                    b.Property<int>("RolesId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersId")
+                    b.Property<int>("TagId")
                         .HasColumnType("int");
 
-                    b.HasKey("RolesId", "UsersId");
+                    b.HasKey("PostId", "TagId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("TagId");
 
-                    b.ToTable("RoleUser");
+                    b.ToTable("PostTag");
+                });
+
+            modelBuilder.Entity("UserRole", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RoleId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("BlogDotNet6.Models.Post", b =>
                 {
                     b.HasOne("BlogDotNet6.Models.User", "Author")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Post_User");
 
                     b.HasOne("BlogDotNet6.Models.Category", "Category")
                         .WithMany("Posts")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Post_Category");
 
                     b.Navigation("Author");
 
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("RoleUser", b =>
+            modelBuilder.Entity("PostTag", b =>
+                {
+                    b.HasOne("BlogDotNet6.Models.Post", null)
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_PostTag");
+
+                    b.HasOne("BlogDotNet6.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("UserRole", b =>
                 {
                     b.HasOne("BlogDotNet6.Models.Role", null)
                         .WithMany()
-                        .HasForeignKey("RolesId")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BlogDotNet6.Models.User", null)
                         .WithMany()
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("BlogDotNet6.Models.Category", b =>
+                {
+                    b.Navigation("Posts");
+                });
+
+            modelBuilder.Entity("BlogDotNet6.Models.User", b =>
                 {
                     b.Navigation("Posts");
                 });

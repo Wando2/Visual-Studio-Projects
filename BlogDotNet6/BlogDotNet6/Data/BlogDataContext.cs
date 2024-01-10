@@ -21,7 +21,7 @@ namespace BlogDotNet6.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=localhost,1433;Database=BlogDotNet6;User ID=sa;Password=1q2w3e4r@#$;Encrypt=false");
+            options.UseSqlServer("Server=localhost,1433;Database=blog-modulo-6;User ID=sa;Password=1q2w3e4r@#$;Encrypt=false");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

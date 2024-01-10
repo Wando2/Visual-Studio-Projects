@@ -1,18 +1,18 @@
+using System.IO.Compression;
 using System.Text;
+using System.Text.Json.Serialization;
 using BlogDotNet6;
 using BlogDotNet6.Data;
 using BlogDotNet6.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigureMvc(builder);
 ConfigureAuthentication(builder);
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<BlogDataContext>();
-
+ConfigureServices(builder);
 
 var app = builder.Build();
 
@@ -42,10 +42,25 @@ void LoadConfiguration(WebApplication app)
 
 void ConfigureMvc(WebApplicationBuilder builder)
 {
-    builder.Services.AddControllers()
+    builder.Services
+        .AddMemoryCache()
+        .AddResponseCompression(options =>
+        {
+            options.Providers.Add<GzipCompressionProvider>();
+        })
+        .Configure<GzipCompressionProviderOptions>(options =>
+        {
+            options.Level = CompressionLevel.Optimal;
+        })
+        .AddControllers()
         .ConfigureApiBehaviorOptions(options =>
         {
             options.SuppressModelStateInvalidFilter = true;
+        })
+        .AddJsonOptions(x =>
+        {
+            x.JsonSerializerOptions.IgnoreNullValues = true;
+            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         });
 }
 
@@ -70,3 +85,9 @@ void ConfigureAuthentication(WebApplicationBuilder builder)
         });
 }
 
+void ConfigureServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddDbContext<BlogDataContext>();
+}
