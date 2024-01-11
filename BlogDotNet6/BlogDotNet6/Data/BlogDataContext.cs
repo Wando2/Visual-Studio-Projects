@@ -8,6 +8,9 @@ namespace BlogDotNet6.Data
     using BlogDotNet6.Data.Mappings;
     public class BlogDataContext : DbContext
     {
+        public BlogDataContext(DbContextOptions<BlogDataContext> options) : base(options)
+        {
+        }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }

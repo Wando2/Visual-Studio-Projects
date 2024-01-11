@@ -6,6 +6,7 @@ using BlogDotNet6.Data;
 using BlogDotNet6.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -87,7 +88,9 @@ void ConfigureAuthentication(WebApplicationBuilder builder)
 
 void ConfigureServices(WebApplicationBuilder builder)
 {
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-    builder.Services.AddDbContext<BlogDataContext>();
+    builder.Services.AddDbContext<BlogDataContext>(
+        options => options.UseSqlServer(connectionString));
 }
