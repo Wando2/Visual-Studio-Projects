@@ -1,34 +1,38 @@
+using PaymentContext.Domain.ValueObjects;
+using PaymentContext.Shared.Entities;
+
 namespace PaymentContext.Domain.Entities
 {
-    public  abstract class Payment
+    public abstract class Payment : Entity
     {
-        public string Number { get; set; }
-        public DateTime PaidDate { get; set; }
-        public DateTime ExpireDate { get; set; }
-        public decimal Total { get; set; }
-        public decimal TotalPaid { get; set; }
-        public string Payer { get; set; }
-        public string Document { get; set; }
-        public string Email { get; set; }
-        public string Adress { get; set; }
-        public string TransactionCode { get; set; }
-    }
 
-    public class BoletoPayment : Payment
-    {
-        public string BarCode { get; set; }
-        public string BoletoNumber { get; set; }
-    }
+        public Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, Document document, Email email, Address address)
+        {
+            Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10).ToUpper();
+            PaidDate = paidDate;
+            ExpireDate = expireDate;
+            Total = total;
+            TotalPaid = totalPaid;
+            Payer = payer;
+            Document = document;
+            Email = email;
+            Address = address;
 
-    public class CreditCardPayment : Payment
-    {
-        public string CardHolderName { get; set; }
-        public string CardNumber { get; set; }
-        public string LastTransactionNumber { get; set; }
-    }
+            AddNotifications(document, email, address);
+            
+            
+        }
 
-    public class PayPalPayment : Payment
-    {
-        public string TransactionCode { get; set; }
+        public string Number { get; private set; }
+        public DateTime PaidDate { get; private set; }
+        public DateTime ExpireDate { get; private set; }
+        public decimal Total { get; private set; }
+        public decimal TotalPaid { get; private set; }
+        public string Payer { get; private set; }
+        public Document Document { get; private set; }
+        public Email Email { get; private set; }
+        public Address Address { get; private set; }
+
+        public string TransactionCode { get; private set; }
     }
 }

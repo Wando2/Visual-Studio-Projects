@@ -1,17 +1,41 @@
-﻿using PaymentContext.Domain.Entities;
+﻿using Flunt.Notifications;
 
-namespace PaymentContext.Domain;
+using PaymentContext.Domain.ValueObjects;
+using PaymentContext.Shared.Entities;
 
-public class student
+namespace PaymentContext.Domain.Entities;
+
+public class Student : Entity
 {
-    public string FisrtName { get; set; }
-    public string LastName { get; set; }
-    public string Document { get; set; }
-    public string Email { get; set; }
+    private IList<Subscription> _subscriptions;
 
-    public string Address { get; set; }
+    public Student(Name name, Document document, Email email)
+    {
+        Name = name;
+        Document = document;
+        Email = email;
+        _subscriptions = new List<Subscription>(); // Initialize _subscriptions
+        
+        AddNotifications(name, document, email);
+       
+    }
 
-    public List<Subscription> Subscriptions { get; set; }
 
-    
+    public Name Name { get; private set; }
+    public Document Document { get; private set; }
+    public Email Email { get; private set; }
+
+    public Address Address { get; private set; }
+
+    public IEnumerable<Subscription> Subscriptions { get { return _subscriptions.ToArray(); } }
+
+    public void AddSubscription(Subscription subscription)
+    {
+        foreach (var sub in Subscriptions)
+            sub.Inactivate();
+
+        _subscriptions.Add(subscription);
+    }
+
+
 }
