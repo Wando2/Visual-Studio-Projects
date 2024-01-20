@@ -34,5 +34,10 @@ namespace PaymentContext.Domain.Entities
             Active = false;
             LastUpdateDate = DateTime.Now;
         }
+
+        public void AddPayment(Payment payment)
+        {
+            _payments.Add(payment);
+        }
     }
 }
