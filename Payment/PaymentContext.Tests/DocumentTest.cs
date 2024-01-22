@@ -9,7 +9,7 @@ public class DocumentTest
     public void ShouldReturnErrorWhenCNPJIsInvalid()
     {
         var doc = new Document("123", EDocumentType.CNPJ);
-        Assert.True(doc.IsValid);
+        Assert.False(doc.IsValid);
     }
     
     [Fact]

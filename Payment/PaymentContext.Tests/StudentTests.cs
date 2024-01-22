@@ -64,8 +64,25 @@ public class StudentTests
                 _student.AddSubscription(_subscription);
                 _student.AddSubscription(_subscription2);
 
-                Assert.True(_student.IsValid);
+                Assert.False(_student.IsValid);
                
         }
+        
+        [Fact]
+        public void ShouldReturnErrorWhenSubscriptionHasNoPayment()
+        {
+                _student.AddSubscription(_subscription);
+                Assert.False(_student.IsValid);
+        }
+        
+        [Fact]
+        public void ShouldReturnSuccessWhenAddSubscription()
+        {
+                _subscription.AddPayment(_payment);
+                _student.AddSubscription(_subscription);
+                Assert.True(_student.IsValid);
+        }
+        
+      
         
 }
