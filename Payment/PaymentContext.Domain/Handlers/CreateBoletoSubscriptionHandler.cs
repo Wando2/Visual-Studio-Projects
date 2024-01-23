@@ -7,11 +7,11 @@ using PaymentContext.Shared.Handlers;
 
 namespace PaymentContext.Domain.Handlers;
 
-public class SubscriptionHandler : Notifiable<Notification>, IHandler<CreateBoletoPaymentCommand>
+public class CreateBoletoSubscriptionHandler : Notifiable<Notification>, IHandler<CreateBoletoPaymentCommand>
 {
     public readonly IStudentRepository _repository;
     
-    public SubscriptionHandler(IStudentRepository repository)
+    public CreateBoletoSubscriptionHandler(IStudentRepository repository)
     {
         _repository = repository;
     }
