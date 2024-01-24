@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Store\\Store.csproj",
-      "projectName": "Store",
-      "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Store\\Store.csproj",
+      "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj",
+      "projectName": "Store.Domain",
+      "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj",
       "packagesPath": "C:\\Users\\MegaJ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Store\\obj\\",
+      "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MegaJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
