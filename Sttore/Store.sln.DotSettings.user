@@ -1,0 +1,6 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7778957b_002Df1e8_002D4b88_002D8587_002D896c5a6fb274/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Dado_um_novo_pedido_valido_ele_deve_gerar_um_numero_com_8_caracteres" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::635CA0C1-D90D-4F53-AC3C-E18A5ABCE987::net7.0::Store.Tests.Tests.OrderTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

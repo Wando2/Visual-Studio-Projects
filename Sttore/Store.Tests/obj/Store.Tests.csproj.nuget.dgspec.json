@@ -4,14 +4,14 @@
     "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj": {
+    "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj",
-        "projectName": "Store.Tests",
-        "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj",
+        "projectName": "Store.Domain",
+        "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj",
         "packagesPath": "C:\\Users\\MegaJ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\obj\\",
+        "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MegaJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,75 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Flunt": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj",
+        "projectName": "Store.Tests",
+        "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj",
+        "packagesPath": "C:\\Users\\MegaJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MegaJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj": {
+                "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Flunt": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.7.1, )"

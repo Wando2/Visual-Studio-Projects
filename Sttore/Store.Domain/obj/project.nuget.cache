@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eEJQrQV2MYs6F1hQrV6fmrwXB3yMt7Zm6q+B4pLtG6PTPjJFh/Gi7N1cQq1prjKBx8Rla7h/tjYxq3aBn1zt4A==",
+  "dgSpecHash": "6+IStXphmgOb7K2wiz509R8UzshvmzP5HfVbiqYJNLqGDNoiTQhbXcSBpgGv2xS+96dZDr1a3D+1qgKMMDEMZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Domain\\Store.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MegaJ\\.nuget\\packages\\flunt\\2.0.5\\flunt.2.0.5.nupkg.sha512"
+  ],
   "logs": []
 }

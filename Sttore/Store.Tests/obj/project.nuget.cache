@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JHE3lUEbalbr0IrB5O0we2TH0ADrJF1DOLBK/VhY4JJnf+iCBQQL+/YQQzd0oYlV3hfrfF+nzviYmYqohFS+hg==",
+  "dgSpecHash": "4QL7KrE78y72UHO3xed2Kc1eN4cdgKOjngFi1UQAU5K9Gca2lN9Hata+ClY4xBcEmJu9pWCyk40upZ1NZWV/eg==",
   "success": true,
   "projectFilePath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Sttore\\Store.Tests\\Store.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MegaJ\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\MegaJ\\.nuget\\packages\\flunt\\2.0.5\\flunt.2.0.5.nupkg.sha512",
     "C:\\Users\\MegaJ\\.nuget\\packages\\microsoft.codecoverage\\17.7.1\\microsoft.codecoverage.17.7.1.nupkg.sha512",
     "C:\\Users\\MegaJ\\.nuget\\packages\\microsoft.net.test.sdk\\17.7.1\\microsoft.net.test.sdk.17.7.1.nupkg.sha512",
     "C:\\Users\\MegaJ\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
