@@ -6,6 +6,7 @@ public class Discount : Entity
     {
         Amount = amount;
         ExpireDate = expireDate;
+        Active = true;
     }
 
     public decimal Amount { get; private set; }

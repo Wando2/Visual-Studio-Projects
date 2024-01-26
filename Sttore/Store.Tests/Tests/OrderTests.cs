@@ -51,11 +51,40 @@ public class OrderTests
     }
     
     [Fact]
-    public void Dado_um_novo_item_sem_produto_o_mesmo_nao_deve_ser_adicionado()
+    public void Dado_um_novo_itemNuulo_o_mesmo_nao_deve_ser_adicionado()
     {
         var order = new Order(_customer, 0, null);
         order.AddItem(null, 10);
         Assert.Equal(0, order.Items.Count());
+    }
+    
+    [Fact]
+    public void Dado_um_novo_item_com_quantidade_zero_ou_menor_o_mesmo_nao_deve_ser_adicionado()
+    {
+        var order = new Order(_customer, 0, null);
+        order.AddItem(_product, 0);
+        Assert.Equal(0, order.Items.Count());
+    }
+    
+    [Fact]
+    public void Dado_um_novo_pedido_valido_seu_total_deve_ser_30()
+    {
+        var order = new Order(_customer, 10, _discount);
+        order.AddItem(_product, 3);
+        var total = order.Total();
+        Assert.Equal(30, order.Total());
+        
+        
+    }
+
+    [Fact]
+    public void Desconto_expirado_total_60()
+    {
+      var discount = new Discount(10, DateTime.Now.AddDays(-5));
+      var order = new Order(_customer, 10, discount);
+      order.AddItem(_product, 5);
+      var total = order.Total();
+      Assert.Equal(60, total);
     }
     
 }
