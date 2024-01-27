@@ -3,5 +3,6 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::635CA0C1-D90D-4F53-AC3C-E18A5ABCE987::net7.0::Store.Tests.Tests.OrderTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::635CA0C1-D90D-4F53-AC3C-E18A5ABCE987::net7.0::Store.Tests.Queries.ProductQueriesTests.Dado_a_consulta_de_produtos_ativos_deve_retornar_3&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::635CA0C1-D90D-4F53-AC3C-E18A5ABCE987::net7.0::Store.Tests.Commands.CreateOrderCommandTests.Dado_um_comando_invalido_o_pedido_nao_deve_ser_gerado&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
