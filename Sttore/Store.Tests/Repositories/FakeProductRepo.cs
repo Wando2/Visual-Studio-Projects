@@ -3,7 +3,7 @@ using Store.Domain.Repository.Interfaces;
 
 namespace Store.Tests.Repositories;
 
-public class FakeProductRepository : IProductRepository
+public class FakeProductRepo : IProductRepository
 {
     public Product Get(Guid id)
     {

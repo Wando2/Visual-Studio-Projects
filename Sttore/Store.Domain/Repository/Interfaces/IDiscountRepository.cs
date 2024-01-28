@@ -2,7 +2,7 @@
 
 namespace Store.Domain.Repository.Interfaces;
 
-public interface IDiscountRepo
+public interface IDiscountRepository
 {
     public Discount Get(string code);
 }

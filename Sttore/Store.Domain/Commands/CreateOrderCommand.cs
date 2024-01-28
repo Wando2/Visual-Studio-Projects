@@ -4,7 +4,7 @@ using Store.Domain.Commands.Interfaces;
 
 namespace Store.Domain.Commands;
 
-public class CreateOrderCommand : Notifiable<Notification>, ICommandResult
+public class CreateOrderCommand : Notifiable<Notification>, ICommandResult, ICommand
 {
     public CreateOrderCommand()
     {
@@ -24,15 +24,17 @@ public class CreateOrderCommand : Notifiable<Notification>, ICommandResult
     public string ZipCode { get; set; }
     public string PromoCode { get; set; }
     
+    
+    
     public void Validate()
     {
       AddNotifications(
           new Contract<Notification>()
               .Requires()
-              .IsGreaterThan(0,OrderItems.Count, "OrderItems", "Nenhum item do pedido foi encontrado")
+              .IsGreaterThan(OrderItems,0, "OrderItems", "Nenhum item do pedido foi encontrado")
               .IsNotNullOrEmpty(Customer, "Customer", "Customer is required")
               .IsNotNullOrEmpty(ZipCode, "ZipCode", "ZipCode is required")
-              .IsNotNullOrEmpty(PromoCode, "PromoCode", "PromoCode is required") 
+              
       );
     }
 }
