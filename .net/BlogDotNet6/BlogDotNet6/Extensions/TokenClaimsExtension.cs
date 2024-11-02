@@ -20,7 +20,6 @@ public static class RoleClaimsExtension
 
         claims.AddRange(user.Roles.Select(role => new Claim(ClaimTypes.Role, role.Name)));
 
-
         return claims;
     }
 }
