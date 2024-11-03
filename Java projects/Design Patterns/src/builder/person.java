@@ -1,20 +1,25 @@
+package builder;
 
-public class person{
+public class person {
 
     private String name;
     private String surname;
     private int age;
 
-    @Override
-    public String toString() {
-        return "Builder{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                '}';
+    // Constructor that accepts a Builder object
+    public person(Builder builder) {
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.age = builder.age;
     }
 
-    static class Builder{
+    // Optionally, override the toString() method
+    @Override
+    public String toString() {
+        return "person{name='" + name + "', surname='" + surname + "', age=" + age + "}";
+    }
+
+    static class Builder {
         private String name;
         private String surname;
         private int age;
@@ -35,13 +40,7 @@ public class person{
         }
 
         public person build(){
-            person p = new person();
-            p.name = this.name;
-            p.surname = this.surname;
-            p.age = this.age;
-            return p;
+            return new person(this); // Now this constructor exists
         }
-
-       
     }
 }
