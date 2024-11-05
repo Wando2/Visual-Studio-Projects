@@ -19,7 +19,9 @@ public class person {
         return "person{name='" + name + "', surname='" + surname + "', age=" + age + "}";
     }
 
-    static class Builder {
+
+
+    public static class Builder {
         private String name;
         private String surname;
         private int age;
