@@ -5573,37 +5573,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MegaJ\\.nuget\\packages\\": {}
+    "C:\\Users\\Wando\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Tests\\PaymentContext.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Tests\\PaymentContext.Tests.csproj",
       "projectName": "PaymentContext.Tests",
-      "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Tests\\PaymentContext.Tests.csproj",
-      "packagesPath": "C:\\Users\\MegaJ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Tests\\obj\\",
+      "projectPath": "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Tests\\PaymentContext.Tests.csproj",
+      "packagesPath": "C:\\Users\\Wando\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MegaJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Wando\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Domain\\PaymentContext.Domain.csproj": {
-              "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Domain\\PaymentContext.Domain.csproj"
+            "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Domain\\PaymentContext.Domain.csproj": {
+              "projectPath": "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Domain\\PaymentContext.Domain.csproj"
             },
-            "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Shared\\PaymentContext.Shared.csproj": {
-              "projectPath": "C:\\Users\\MegaJ\\OneDrive\\Documentos\\Visual Studio Projects\\Payment\\PaymentContext.Shared\\PaymentContext.Shared.csproj"
+            "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Shared\\PaymentContext.Shared.csproj": {
+              "projectPath": "C:\\Users\\Wando\\Documents\\GitHub\\Visual-Studio-Projects\\.net\\Payment\\PaymentContext.Shared\\PaymentContext.Shared.csproj"
             }
           }
         }
@@ -5612,6 +5610,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5659,7 +5662,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
